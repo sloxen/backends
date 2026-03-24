@@ -10,7 +10,7 @@ def send_email(to_email: str, subject: str, text_body: str) -> None:
     smtp_pass = os.getenv("SMTP_PASS", "").strip()
 
     email_from = (os.getenv("EMAIL_FROM") or smtp_user).strip()
-    from_name = os.getenv("EMAIL_FROM_NAME", "Sloths Intel").strip()
+    from_name = os.getenv("EMAIL_FROM_NAME", "Sloxen™").strip()
 
     if not (smtp_host and smtp_user and smtp_pass and email_from):
         raise RuntimeError("SMTP env vars not fully set (SMTP_HOST/PORT/USER/PASS, EMAIL_FROM).")

@@ -31,11 +31,11 @@ def utcnow() -> datetime:
 
 
 def build_frontend_url(path: str) -> str:
-    # e.g. https://autoweave.slothsintel.com
+    # e.g. https://autoweave.sloxen.com
     base = (os.getenv("FRONTEND_BASE_URL") or "").strip().rstrip("/")
     if not base:
         # fallback: you can set FRONTEND_BASE_URL in Render env
-        base = "https://autoweave.slothsintel.com"
+        base = "https://autoweave.sloxen.com"
     if not path.startswith("/"):
         path = "/" + path
     return base + path
@@ -87,7 +87,7 @@ def email_verify_text(email: str, verify_link: str) -> str:
         f"Please verify your email by opening this link:\n"
         f"{verify_link}\n\n"
         f"If you did not request this, you can ignore this email.\n\n"
-        f"— Sloths Intel Team\n"
+        f"— Sloxen™ Team\n"
     )
 
 
@@ -98,7 +98,7 @@ def email_reset_text(email: str, reset_link: str) -> str:
         f"Reset your password using this link:\n"
         f"{reset_link}\n\n"
         f"If you didn’t request this, you can ignore this email.\n\n"
-        f"— Sloths Intel Team\n"
+        f"— Sloxen™ Team\n"
     )
 
 
