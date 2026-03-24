@@ -30,7 +30,7 @@ app = FastAPI(title="AutoTrac backend AUTH ENABLED")
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://autotrac.slothsintel.com",
+    "https://autotrac.sloxen.com",
     "https://autotrac-35sx.onrender.com",
 ]
 
@@ -118,8 +118,8 @@ def send_reset_email(to_email: str, token: str) -> None:
         "Open this link to set a new password:\n"
         f"{link}\n\n"
         f"This link expires in {RESET_TTL_HOURS} hour(s).\n\n"
-        "If you didn’t request this, you can ignore this email or report to us (mailto:info@slothsintel.com).\n"
-        "— Sloths Intel Team\n"
+        "If you didn’t request this, you can ignore this email or report to us (mailto:info@sloxen.com).\n"
+        "— Sloxen™ Team\n"
     )
 
     with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as s:
@@ -146,7 +146,7 @@ def root():
 # ---------------- Email verification helpers ----------------
 
 VERIFY_TTL_HOURS = int(os.getenv("VERIFY_TTL_HOURS", "24"))
-PUBLIC_APP_URL = os.getenv("PUBLIC_APP_URL", "https://autotrac.slothsintel.com")
+PUBLIC_APP_URL = os.getenv("PUBLIC_APP_URL", "https://autotrac.sloxen.com")
 
 def _make_verify_token() -> str:
     return secrets.token_urlsafe(32)
@@ -174,7 +174,7 @@ def _send_verify_email(to_email: str, token: str) -> None:
         "Please confirm your email address by opening this link:\n"
         f"{link}\n\n"
         f"This link expires in {VERIFY_TTL_HOURS} hours.\n\n"
-        "— Sloths Intel Team\n"
+        "— Sloxen™ Team\n"
     )
 
     with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as s:
